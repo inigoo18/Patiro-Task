@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Patiro-Task": {
+      "commandName": "Project",
+      "commandLineArgs": "0,5 275,50 model12345"
+    }
+  }
+}
