@@ -10,7 +10,7 @@ namespace Patiro_Task2
         private readonly double time;
         private readonly double money;
         private readonly int globalFactor;
-        private readonly List<CustomCost> wantedComponents;
+        private readonly List<CustomCost> wantedCosts;
 
         public Component(double time, double money, string modelID, ModelList ms, List<CustomCost> cs = null)
         {
@@ -19,7 +19,7 @@ namespace Patiro_Task2
             globalFactor = 300;
 
             model = ms.FindModel(modelID);
-            wantedComponents = cs;
+            wantedCosts = cs;
         }
 
         public double ComputeCost()
@@ -37,14 +37,14 @@ namespace Patiro_Task2
             double tmp = Math.Round(time * (timeFactor / 60) + money);
             double finalResult = tmp;
 
-            foreach (CustomCost c in wantedComponents)
+            foreach (CustomCost c in wantedCosts)
             {
                 CustomCost usedComponent = c;
                 if (!c.GetOverride())
                 {
                     if (model != null)
                     {
-                        usedComponent = model.GetComponent(c.GetName());
+                        usedComponent = model.GetCustomCost(c.GetName());
                         if (usedComponent == null)
                         {
                             usedComponent = c;
