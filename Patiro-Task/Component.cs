@@ -4,37 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Patiro_Task {
-    namespace Part_1{
-        class Component
+namespace Patiro_Task
+{
+    class Component
+    {
+        private readonly Model model;
+        private readonly double time;
+        private readonly double money;
+        private readonly int globalFactor;
+
+        public Component(double time, double money, string modelID, ModelList ms)
         {
-            private readonly Model model;
-            private readonly double time;
-            private readonly double money;
-            private readonly int globalFactor;
+            this.time = time;
+            this.money = money;
+            globalFactor = 300;
 
-            public Component(double time, double money, string modelID, ModelList ms)
+            model = ms.FindModel(modelID);
+        }
+
+        public double ComputeCost()
+        {
+            int timeFactor;
+            if (model == null)
             {
-                this.time = time;
-                this.money = money;
-                globalFactor = 300;
-
-                model = ms.FindModel(modelID);
+                timeFactor = globalFactor;
             }
-
-            public double ComputeCost()
+            else
             {
-                int timeFactor;
-                if (model == null)
-                {
-                    timeFactor = globalFactor;
-                }
-                else
-                {
-                    timeFactor = model.GetTimeFactor();
-                }
-                return Math.Round(time * (timeFactor / 60) + money);
+                timeFactor = model.GetTimeFactor();
             }
+            return Math.Round(time * (timeFactor / 60) + money);
         }
     }
 }

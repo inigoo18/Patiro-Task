@@ -6,28 +6,25 @@ using System.Threading.Tasks;
 
 namespace Patiro_Task
 {
-    namespace Part_1
+    class Model
     {
-        class Model
+        private readonly string label;
+        private readonly int timeFactor;
+
+        public Model(string label, int timeFactor)
         {
-            private readonly string label;
-            private readonly int timeFactor;
+            this.label = label;
+            this.timeFactor = timeFactor;
+        }
 
-            public Model(string label, int timeFactor)
-            {
-                this.label = label;
-                this.timeFactor = timeFactor;
-            }
+        public int GetTimeFactor()
+        {
+            return timeFactor;
+        }
 
-            public int GetTimeFactor()
-            {
-                return timeFactor;
-            }
-
-            public string GetLabel()
-            {
-                return label;
-            }
+        public string GetLabel()
+        {
+            return label;
         }
     }
 }
