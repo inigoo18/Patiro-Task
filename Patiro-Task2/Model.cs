@@ -11,9 +11,9 @@ namespace Patiro_Task
     {
         private readonly string label;
         private readonly int timeFactor;
-        private List<CustomComponent> customComponents;
+        private List<CustomCost> customComponents;
 
-        public Model(string label, int timeFactor, List<CustomComponent> ccs = null)
+        public Model(string label, int timeFactor, List<CustomCost> ccs = null)
         {
             this.label = label;
             this.timeFactor = timeFactor;
@@ -30,8 +30,8 @@ namespace Patiro_Task
             return label;
         }
 
-        public CustomComponent GetComponent(string name) {
-            foreach (CustomComponent c in customComponents)
+        public CustomCost GetComponent(string name) {
+            foreach (CustomCost c in customComponents)
             {
                 if (c.GetName() == name)
                 {

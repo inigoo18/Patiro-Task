@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Patiro_Task2
 {
-    class InconvenienceComponent : CustomComponent
+    class InconvenienceCost : CustomCost
     {
         private InconvenienceType level;
         public enum InconvenienceType { LOW, MEDIUM, HIGH, NONE };
@@ -14,12 +14,12 @@ namespace Patiro_Task2
         private Dictionary<InconvenienceType, int> costs;
         private Dictionary<string, InconvenienceType> strToEnum;
 
-        public InconvenienceComponent(string str, bool overrid = false)
+        public InconvenienceCost(string str, bool overrid = false)
         {
             RestConstructor(overrid);
             InputValue(str);
         }
-        public InconvenienceComponent(InconvenienceType level = InconvenienceType.LOW, bool overrid = false)
+        public InconvenienceCost(InconvenienceType level = InconvenienceType.LOW, bool overrid = false)
         {
             this.level = level;
             RestConstructor(overrid);

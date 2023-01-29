@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Patiro_Task2
 {
-    abstract class CustomComponent
+    abstract class CustomCost
     {
         protected string componentName;
         protected bool overrid;

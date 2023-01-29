@@ -9,18 +9,18 @@ namespace Patiro_Task
         static void Main(string[] args)
         {
             int lengthArgs = args.Length;
-            Dictionary<string, CustomComponent> overrideDict = new Dictionary<string, CustomComponent>();
+            Dictionary<string, CustomCost> overrideDict = new Dictionary<string, CustomCost>();
 
             for (int i = 3; i < lengthArgs; i++)
             {
                 string[] words = args[i].Split(':');
-                CustomComponent newComp = ParseComponent(words[0], words[1]);
+                CustomCost newComp = ParseComponent(words[0], words[1]);
                 overrideDict.Add(words[0], newComp);
             }
 
-            RiskComponent rc = new RiskComponent(RiskComponent.RiskType.HIGH);
-            InconvenienceComponent ic = new InconvenienceComponent(InconvenienceComponent.InconvenienceType.MEDIUM);
-            List<CustomComponent> cs = new List<CustomComponent>
+            RiskCost rc = new RiskCost(RiskCost.RiskType.HIGH);
+            InconvenienceCost ic = new InconvenienceCost(InconvenienceCost.InconvenienceType.MEDIUM);
+            List<CustomCost> cs = new List<CustomCost>
             {
                 rc,
                 ic
@@ -32,19 +32,19 @@ namespace Patiro_Task
             ms.AddModel(m1);
             ms.AddModel(m2);
 
-            CustomComponent wrc;
+            CustomCost wrc;
             if (!overrideDict.TryGetValue("Risk", out wrc))
             {
-                wrc = new RiskComponent();
+                wrc = new RiskCost();
             }
 
-            CustomComponent wic;
+            CustomCost wic;
             if (!overrideDict.TryGetValue("Inconvenience", out wic))
             {
-                wic = new InconvenienceComponent();
+                wic = new InconvenienceCost();
             }
 
-            List<CustomComponent> wcs = new List<CustomComponent>
+            List<CustomCost> wcs = new List<CustomCost>
             {
                 wrc,
                 wic
@@ -60,16 +60,16 @@ namespace Patiro_Task
             return Convert.ToDouble(str);
         }
 
-        static CustomComponent ParseComponent(string name, string val)
+        static CustomCost ParseComponent(string name, string val)
         {
             if (name == "Risk")
             {
-                RiskComponent rc = new RiskComponent(val, true);
+                RiskCost rc = new RiskCost(val, true);
                 return rc;
             }
             else if (name == "Inconvenience")
             {
-                InconvenienceComponent ic = new InconvenienceComponent(val, true);
+                InconvenienceCost ic = new InconvenienceCost(val, true);
                 return ic;
             }
             else

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Patiro_Task2
 {
-    class RiskComponent : CustomComponent
+    class RiskCost : CustomCost
     {
         private RiskType level;
         public enum RiskType { LOW, MEDIUM, HIGH, NONE};
@@ -14,12 +14,12 @@ namespace Patiro_Task2
         private Dictionary<RiskType, int> costs;
         private Dictionary<string, RiskType> strToEnum;
 
-        public RiskComponent(string str, bool overrid = false)
+        public RiskCost(string str, bool overrid = false)
         {
             RestConstructor(overrid);
             InputValue(str);
         }
-        public RiskComponent(RiskType level = RiskType.LOW, bool overrid = false)
+        public RiskCost(RiskType level = RiskType.LOW, bool overrid = false)
         {
             this.level = level;
             RestConstructor(overrid);
