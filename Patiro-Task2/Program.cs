@@ -14,7 +14,7 @@ namespace Patiro_Task2
             for (int i = 3; i < lengthArgs; i++)
             {
                 string[] words = args[i].Split(':');
-                CustomCost newComp = ParseComponent(words[0], words[1]);
+                CustomCost newComp = ParseComponent(words[0], words[1].ToLower());
                 overrideDict.Add(words[0], newComp);
             }
 
@@ -32,8 +32,7 @@ namespace Patiro_Task2
             ms.AddModel(m1);
             ms.AddModel(m2);
 
-            CustomCost wrc;
-            if (!overrideDict.TryGetValue("Risk", out wrc))
+            if (!overrideDict.TryGetValue("Risk", out CustomCost wrc))
             {
                 wrc = new RiskCost();
             }
@@ -62,21 +61,7 @@ namespace Patiro_Task2
 
         static CustomCost ParseComponent(string name, string val)
         {
-            if (name == "Risk")
-            {
-                RiskCost rc = new RiskCost(val, true);
-                return rc;
-            }
-            else if (name == "Inconvenience")
-            {
-                InconvenienceCost ic = new InconvenienceCost(val, true);
-                return ic;
-            }
-            else
-            {
-                return null;
-
-            }
+            return CustomCost.CostParser(name, val);
         }
     }
 }

@@ -22,5 +22,24 @@ namespace Patiro_Task2
             return overrid;
         }
 
+        public static CustomCost CostParser(string name, string val)
+        {
+            if (name == "Risk")
+            {
+                RiskCost rc = new RiskCost(val, true);
+                return rc;
+            }
+            else if (name == "Inconvenience")
+            {
+                InconvenienceCost ic = new InconvenienceCost(val, true);
+                return ic;
+            }
+            else
+            {
+                return null;
+
+            }
+        }
+
     }
 }
