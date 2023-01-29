@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Patiro_Task
+namespace Patiro_Task2
 {
     class Model
     {

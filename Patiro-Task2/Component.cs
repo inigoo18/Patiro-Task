@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Patiro_Task2;
 
-namespace Patiro_Task
+namespace Patiro_Task2
 {
     class Component
     {

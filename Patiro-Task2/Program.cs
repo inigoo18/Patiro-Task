@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Patiro_Task
+namespace Patiro_Task2
 {
     class Program
     {
