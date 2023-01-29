@@ -33,7 +33,7 @@ namespace Patiro_Task
             {
                 timeFactor = model.GetTimeFactor();
             }
-            return Math.Round(time * (timeFactor / 60) + money);
+            return Math.Round((time / 60) * timeFactor + money);
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Patiro_Task2
 {
     class InconvenienceCost : CustomCost
     {
+        // similar layout as in the RiskCost class.
         private InconvenienceType level;
         public enum InconvenienceType { LOW, MEDIUM, HIGH, NONE };
 
